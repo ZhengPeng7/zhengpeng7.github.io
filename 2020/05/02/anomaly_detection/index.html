@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>Peng Zheng Station</title>
+
+  <link rel="shortcut icon" href="/media_files/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="Peng Zheng Station">
+  <meta name="description" content="手机home键异常检测的1.事检测种类: )崩边、)划痕、污点.  主要是重拾了许久不碰的视觉的传统算法. 目前污点尚处于较主观评测阶段, 无精准标签.  多现操作 获取玉盘区域: 由于home键整体白, 周围存在黑色轮廓, 背景偏灰, 因此 阈值化 –&amp;gt; 形态学操作用以平滑轮廓和连接断裂处, 以防有预期以外的内部延伸至圆外的情况 –&amp;gt; 确定最大轮廓为玉盘区域 –&amp;gt; 填充盘内空洞">
+<meta name="keywords" content="Vision,Reading">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Peng Zheng Station">
+<meta property="og:url" content="http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/index.html">
+<meta property="og:site_name" content="Peng Zheng Station">
+<meta property="og:description" content="手机home键异常检测的1.事检测种类: )崩边、)划痕、污点.  主要是重拾了许久不碰的视觉的传统算法. 目前污点尚处于较主观评测阶段, 无精准标签.  多现操作 获取玉盘区域: 由于home键整体白, 周围存在黑色轮廓, 背景偏灰, 因此 阈值化 –&amp;gt; 形态学操作用以平滑轮廓和连接断裂处, 以防有预期以外的内部延伸至圆外的情况 –&amp;gt; 确定最大轮廓为玉盘区域 –&amp;gt; 填充盘内空洞">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://placehold.it/15/12F943/000000?text=+">
+<meta property="og:image" content="https://placehold.it/15/1589F0/000000?text=+">
+<meta property="og:image" content="https://placehold.it/15/F51234/000000?text=+">
+<meta property="og:image" content="https://placehold.it/15/12F943/000000?text=+">
+<meta property="og:image" content="http://zhengpeng7.github.io/media_files/example_edge.png">
+<meta property="og:image" content="https://placehold.it/15/1589F0/000000?text=+">
+<meta property="og:image" content="http://zhengpeng7.github.io/media_files/example_scratch.png">
+<meta property="og:image" content="https://placehold.it/15/F51234/000000?text=+">
+<meta property="og:image" content="http://zhengpeng7.github.io/media_files/example_point.png">
+<meta property="og:updated_time" content="2020-05-02T05:43:28.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Peng Zheng Station">
+<meta name="twitter:description" content="手机home键异常检测的1.事检测种类: )崩边、)划痕、污点.  主要是重拾了许久不碰的视觉的传统算法. 目前污点尚处于较主观评测阶段, 无精准标签.  多现操作 获取玉盘区域: 由于home键整体白, 周围存在黑色轮廓, 背景偏灰, 因此 阈值化 –&amp;gt; 形态学操作用以平滑轮廓和连接断裂处, 以防有预期以外的内部延伸至圆外的情况 –&amp;gt; 确定最大轮廓为玉盘区域 –&amp;gt; 填充盘内空洞">
+<meta name="twitter:image" content="https://placehold.it/15/12F943/000000?text=+">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="description">
+  <meta name="keywords" content>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Peng Zheng Station">
+  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Peng Zheng Station">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/media_files/favicon.png">
+
+  
+    <meta property="article:published_time" content="Sat May 02 2020 05:54:27 GMT+0200">
+    <meta property="article:modified_time" content="Sat May 02 2020 07:43:28 GMT+0200">
+  
+
+  
+    <link rel="canonical" href="http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/">
+  
+
+  
+  
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">Peng Zheng Station</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="Enter the key words">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/media_files/banner.png" style="height: 160px;">
+    <img src="/media_files/vision.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">Peng Zheng</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>subtitle</div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:zhengpeng0108@gmail.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'zhengpeng0108@gmail.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/05/">May 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/03/">March 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/10/">October 2019<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/Tools/">Tools<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/Inkscape/">Inkscape<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/LaTeX/">LaTeX<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">Gallery</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://github.com/ZhengPeng7" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-8.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title"></div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-05-02 / <i class="iconfont">&#xe601;</i> Peng Zheng</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACY0lEQVR42u3aQXLjMAwEQP//08l1D1vyDCjSiqt1SjmSzcaBoAC8fr76euHh4eHh4eHh4T2M94qv5Kl///ufHw6+84a14eHh4R3hvdlqL+/Jl5s8m4TpTVDw8PDwDvKSjT7ZoK8TQx6Udm14eHh4T+ZFG/T1IoLvx8PDw/sm3kryaEseeHh4eE/mJS/8s6JDvtz1QgkeHh7eGV6+ZZ//+2h/Dw8PDy/g1SNNZbvrunSbl4CHQ1d4eHh4G3htcytv/M8aXXnSwsPDw/ssr3i4HF3NhwbyNHPDGwMeHh7eAm/lENxSc+RsfAEPDw/vCbzkJ1faY9eBmB338fDw8Hbz1g/BbQKYFXaTO/Hw8PDO8Gbtq/z+WRrIP8fDw8M7z5uVDPJEMgvELBx4eHh4Z3iz4ulsy042/fa4j4eHh/cp3mwTb8ORF3PblhseHh7ep3jtSEEboHqhs5YbHh4e3od4Sds+TxvJ97cF5fpIjYeHh3cTb70dlZczroM1a57h4eHhneflBYJ8sKA9sucH7ujoj4eHh7eZ1xZb25QwO5rfVozAw8PDO8JrF5qXNtq00TbD8PDw8M7z2rJs29bKk8RSsPDw8PAO8tqS7l2DBXn4IjweHh7eZl57ta2pNp20JWM8PDy887yVg3JeqE3KDe04Vz0ZgYeHh3crL08GbbmhxeSJoX5jwMPDw9vAyzfodstuE0CbYPDw8PCez0sSSXvUXvkcDw8P76/wZgWL9WGvQ4kBDw8P76ZixGwgYD00h8q4eHh4eBsaYG0i2XEQfxN0PDw8vM2877vw8PDw8PDw8PAecP0CKtIWEW3aXjMAAAAASUVORK5CYII=">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=&url=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/&title=" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng Zheng Station&title=&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/&text=" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h2 id="手机home键异常检测的1-事"><a href="#手机home键异常检测的1-事" class="headerlink" title="手机home键异常检测的1.事"></a>手机home键异常检测的1.事</h2><p><strong>检测种类</strong>: <img src="https://placehold.it/15/12F943/000000?text=+" alt="#12F943">)崩边、<img src="https://placehold.it/15/1589F0/000000?text=+" alt="#1589F0">)划痕、<img src="https://placehold.it/15/F51234/000000?text=+" alt="#F51234">污点.</p>
+<blockquote>
+<p>主要是重拾了许久不碰的视觉的传统算法. 目前污点尚处于较主观评测阶段, 无精准标签.</p>
+</blockquote>
+<h4 id="多现操作"><a href="#多现操作" class="headerlink" title="多现操作"></a>多现操作</h4><ol>
+<li>获取玉盘区域: 由于home键整体白, 周围存在黑色轮廓, 背景偏灰, 因此 阈值化 –&gt; 形态学操作用以平滑轮廓和连接断裂处, 以防有预期以外的内部延伸至圆外的情况 –&gt; 确定最大轮廓为玉盘区域 –&gt; 填充盘内空洞.</li>
+<li>真实世界异常区域的外形的筛选阈值: 这次的图像右击没能看到dpi, 改后缀为.jpg可有此属性(300), 但实则有误. 经查证<a href="https://developer.apple.com/accessories/Accessory-Design-Guidelines.pdf" target="_blank" rel="noopener">Apple官方文档(page-150)</a>, 此款型号直径为10.9mm, 得该批图像dpi约为3000.</li>
+<li>自适应阈值化: 对于玉盘区域的像素, T = $\mu + \sigma * \alpha$, 以此确定阈值. 定死的阈值因不同样本间整体性差异较大, 误检率会存在少量极端情况. 对于一块黑板上存在一块不规则区域, 要求取其$\mu 和 \sigma$, 需要统计其所有像素值. 然而不可能使用循环的方式添加, 效率堪忧, 因此采用以下相对较快的本座方法:<ol>
+<li>确定矩形ROI, 减小计算量;</li>
+<li>对于对应到原图的ROI区域中的玉盘以外归0, flatten该矩形区域, sort该像素值列表;</li>
+<li>而因已知区域掩码故知区域内的像素数N, 故取后N个像素值, 即为不规则区域的乱序像素值;</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def get_adaptive_threshold(image, plate_area, sigma_mul=2.5):</span><br><span class="line">    # get mu &amp; sigma of ROI</span><br><span class="line">    plate_area_size = int(np.sum(plate_area / 255))</span><br><span class="line">    sumline_horizontal = (np.sum(plate_area, axis=0) &gt; 0).astype(np.uint8).tolist()</span><br><span class="line">    sumline_vertical = (np.sum(plate_area, axis=1) &gt; 0).astype(np.uint8).tolist()</span><br><span class="line">    x_min, x_max = sumline_horizontal.index(1), len(sumline_horizontal) - sumline_horizontal[::-1].index(1) - 1</span><br><span class="line">    y_min, y_max = sumline_vertical.index(1), len(sumline_vertical) - sumline_vertical[::-1].index(1) - 1</span><br><span class="line"></span><br><span class="line">    plate_black_with_points_white = get_white_points_on_black_plate(image, plate_area)</span><br><span class="line">    pixel_values = sorted(cv2.cvtColor(plate_black_with_points_white, cv2.COLOR_BGR2GRAY)[y_min:y_max+1, x_min:x_max+1].tolist())[-plate_area_size:]</span><br><span class="line">    mu = np.mean(pixel_values)</span><br><span class="line">    sigma = np.std(pixel_values)</span><br><span class="line"></span><br><span class="line">    thr_value_inv = int(mu + sigma * sigma_mul)</span><br><span class="line">    return thr_value_inv</span><br></pre></td></tr></table></figure>
+
+<h4 id="崩边"><a href="#崩边" class="headerlink" title="崩边:"></a><img src="https://placehold.it/15/12F943/000000?text=+" alt="#12F943">崩边:</h4><ol>
+<li>形态学闭操作(闭操作可<a href="https://docs.opencv.org/trunk/d9/d61/tutorial_py_morphological_ops.html" target="_blank" rel="noopener">填充小缺口/空洞</a>, 例如崩边);</li>
+<li>取变化区域;</li>
+<li>求其轮廓;</li>
+<li>筛选;</li>
+<li>即可得崩边.<br><img src="/media_files/example_edge.png" alt="edge"></li>
+</ol>
+<h4 id="划痕"><a href="#划痕" class="headerlink" title="划痕:"></a><img src="https://placehold.it/15/1589F0/000000?text=+" alt="#1589F0">划痕:</h4><ol>
+<li>先是滤波平滑, 提取home键区域的图像, 像素值置反, 削去圆的边界轮廓(对检测有较大影响);</li>
+<li>然后自适应阈值化(1.35);</li>
+<li>形态学开操作;</li>
+<li>第一次概率霍夫线段检测;</li>
+<li>单独绘制第一次的线段检测结果;</li>
+<li>第二次概率霍夫线段检测(之所以说做两次, 是因为希望通过先连接短线段, 再从短线段中检测长线段, 如果一次到位, 由于点可能过多, 误检率较高);</li>
+<li>然后进行骨架化操作(求线宽可用原轮廓面积, 除以骨架化后的像素数(即其长度)), 依据线长以及相邻距离, 滤去不太可能是划伤的检测结果.<br><img src="/media_files/example_scratch.png" alt="scratch"></li>
+</ol>
+<h4 id="污点"><a href="#污点" class="headerlink" title="污点:"></a><img src="https://placehold.it/15/F51234/000000?text=+" alt="#F51234">污点:</h4><ol>
+<li>类似检测划痕, 削去圆的边界轮廓;</li>
+<li>膨胀, 以便没掉多数不够黑或黑色区域过小的区域, 即并非污点的区域;</li>
+<li>自适应阈值化(2.0);</li>
+<li>筛选, 填充面积过小的轮廓, 去掉中心相邻过近的检测结果;<br><img src="/media_files/example_point.png" alt="point"></li>
+</ol>
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/">http://ZhengPeng7.github.io/2020/05/02/anomaly_detection/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+      
+    </footer>
+    
+  </article>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2020/03/03/LaTeX-in-Inkscape/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+      <a href="https://twitter.com/moHe53048975" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe655;</i></a>
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://www.github.com/ZhengPeng7" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2020 Peng Zheng<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  <script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
