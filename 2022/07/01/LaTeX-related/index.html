@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Peng Zheng Station">
 <meta property="og:description" content="添加bib无效果 原因: 之前编译过于复杂再遇报错, 使得再编译时直接读取之前留下的缓存文件, 就和有事浏览器的缓存影响页面刷新显示的元素一样. 解决: 在log界面点Clear cached files, 清楚缓存再编译即可. Reference.  Table中表框使用粗线 之前是使用自定义实现:  12345\makeatletter\newcommand&amp;#123;\thickhline&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2022-07-02T19:59:18.721Z">
+<meta property="og:updated_time" content="2022-07-01T20:00:54.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LaTeX相关疑难杂项记录 (mainly on overleaf)">
 <meta name="twitter:description" content="添加bib无效果 原因: 之前编译过于复杂再遇报错, 使得再编译时直接读取之前留下的缓存文件, 就和有事浏览器的缓存影响页面刷新显示的元素一样. 解决: 在log界面点Clear cached files, 清楚缓存再编译即可. Reference.  Table中表框使用粗线 之前是使用自定义实现:  12345\makeatletter\newcommand&amp;#123;\thickhline&amp;">
@@ -41,7 +41,7 @@
 
   
     <meta property="article:published_time" content="Thu Jun 30 2022 22:41:32 GMT+0200">
-    <meta property="article:modified_time" content="Sat Jul 02 2022 23:59:18 GMT+0400">
+    <meta property="article:modified_time" content="Sat Jul 02 2022 00:00:54 GMT+0400">
   
 
   
@@ -168,7 +168,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-4.png" style="max-height: 240px;">
+      <img src="/images/random/material-8.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">LaTeX相关疑难杂项记录 (mainly on overleaf)</div>
@@ -230,7 +230,7 @@
 
 <ul>
 <li><p>之后发现直接使用booktabs里的[top/mid/bottom]rule也可可以实现加粗效果:</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    \usepackage&#123;booktabs&#125;</span><br><span class="line">    \bottomrule</span><br><span class="line"></span><br><span class="line">+ [Reference](https://tex.stackexchange.com/questions/3445/latex-tables-how-do-i-make-thicker-or-thinner-horizontal-lines-typically-hlin).</span><br><span class="line"></span><br><span class="line">#### 使用中文</span><br><span class="line"></span><br><span class="line">+ 在通常的xelatex不行的情况下, 可直接使用`CJKutf8 + pdflatex`:</span><br><span class="line"></span><br><span class="line">```latex</span><br><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage&#123;CJKutf8&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\begin&#123;CJK*&#125;&#123;UTF8&#125;&#123;gbsn&#125;</span><br><span class="line">\section&#123;前言&#125;</span><br><span class="line">\section&#123;关于数学部分&#125;</span><br><span class="line">数学、中英文皆可以混排。You can intersperse math, Chinese and English (Latin script) without adding extra environments.</span><br><span class="line">\end&#123;CJK*&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    \usepackage&#123;booktabs&#125;</span><br><span class="line">    \bottomrule</span><br><span class="line"></span><br><span class="line">+ [Reference](https://tex.stackexchange.com/questions/3445/latex-tables-how-do-i-make-thicker-or-thinner-horizontal-lines-typically-hlin).</span><br><span class="line"></span><br><span class="line">#### 使用中文</span><br><span class="line"></span><br><span class="line">+ 在通常的xelatex不行的情况下, 可直接使用`CJKutf8 + pdflatex`:</span><br><span class="line"></span><br><span class="line">```latex</span><br><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage&#123;CJKutf8&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\begin&#123;CJK*&#125;&#123;UTF8&#125;&#123;gbsn&#125;</span><br><span class="line">\section&#123;A啊+&#125;</span><br><span class="line">数学、中英文皆可以混排。</span><br><span class="line">\end&#123;CJK*&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><a href="https://medium.com/@xszhong/chinese-latex-1a261a8b557" target="_blank" rel="noopener">Reference</a>.</p>
 </li>
