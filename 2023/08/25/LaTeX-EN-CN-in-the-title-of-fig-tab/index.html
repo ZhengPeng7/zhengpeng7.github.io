@@ -8,31 +8,31 @@
   <meta name="renderer" content="webkit">
 
   
-  <title>云GPU使用相关事宜 | Peng Zheng Station</title>
+  <title>LaTeX EN/CN in the title of fig/tab | Peng Zheng Station</title>
 
   <link rel="shortcut icon" href="/media_files/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Peng Zheng Station">
-  <meta name="description" content="Choose virtual environment to use in the notebook123conda activate XX_ENVconda install ipykernelipython kernel install --user --name=XX_ENV   Then, click the add button to launch a notebook with the c">
-<meta name="keywords" content="GPU,Ubuntu">
+  <meta name="description" content="Add \renewcommand{\tablename}{表/Tab} for table and figure (\figurename).">
+<meta name="keywords" content="LaTex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云GPU使用相关事宜">
-<meta property="og:url" content="http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/index.html">
+<meta property="og:title" content="LaTeX EN&#x2F;CN in the title of fig&#x2F;tab">
+<meta property="og:url" content="http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/index.html">
 <meta property="og:site_name" content="Peng Zheng Station">
-<meta property="og:description" content="Choose virtual environment to use in the notebook123conda activate XX_ENVconda install ipykernelipython kernel install --user --name=XX_ENV   Then, click the add button to launch a notebook with the c">
+<meta property="og:description" content="Add \renewcommand{\tablename}{表/Tab} for table and figure (\figurename).">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2022-06-30T21:04:34.012Z">
+<meta property="og:updated_time" content="2023-08-25T07:11:00.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="云GPU使用相关事宜">
-<meta name="twitter:description" content="Choose virtual environment to use in the notebook123conda activate XX_ENVconda install ipykernelipython kernel install --user --name=XX_ENV   Then, click the add button to launch a notebook with the c">
+<meta name="twitter:title" content="LaTeX EN&#x2F;CN in the title of fig&#x2F;tab">
+<meta name="twitter:description" content="Add \renewcommand{\tablename}{表/Tab} for table and figure (\figurename).">
 
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
   <meta name="description" content="description">
-  <meta name="keywords" content=",GPU,Ubuntu">
+  <meta name="keywords" content=",LaTex">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Peng Zheng Station">
-  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/">
+  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Peng Zheng Station">
@@ -40,12 +40,12 @@
   <link rel="apple-touch-icon" href="/media_files/favicon.png">
 
   
-    <meta property="article:published_time" content="Thu Jun 30 2022 22:13:04 GMT+0200">
-    <meta property="article:modified_time" content="Fri Jul 01 2022 05:04:34 GMT+0800">
+    <meta property="article:published_time" content="Fri Aug 25 2023 15:07:11 GMT+0200">
+    <meta property="article:modified_time" content="Fri Aug 25 2023 15:11:00 GMT+0800">
   
 
   
-    <link rel="canonical" href="http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/">
+    <link rel="canonical" href="http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/">
   
 
   
@@ -168,11 +168,11 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-17.png" style="max-height: 240px;">
+      <img src="/images/random/material-16.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title">云GPU使用相关事宜</div>
-          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2022-06-30 / <i class="iconfont">&#xe601;</i> Peng Zheng</div>
+          <div class="mdui-card-primary-title">LaTeX EN/CN in the title of fig/tab</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2023-08-25 / <i class="iconfont">&#xe601;</i> Peng Zheng</div>
         </div>
       </div>
       <div class="mdui-card-menu">
@@ -184,7 +184,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACXElEQVR42u3aQXLDMAgFUN//0u0BMmk+YMlq5mmVmTqqnhaGANfPV68LDw8PDw8PDw/vMN4Vrw+bBs//vfPrt3pnw8PDw9vDS46ew/JLed3/b3ByNjw8PLydvOSVPQkhvf+VP4+Hh4f3X3j5FSQpOB4eHt638qLUdhxO8PDw8M7n3ZUKvz5571UurLXg4eHhxbz8xb3/89b+Hh4eHl7AK480BSEhSbLf7fbwTBkeHh5ewMtfxEkiniTN1QJHuc2Gh4eHt5jXG3vqHTdh98B4eHh4T/GSNn/1iHf9tXB9eHh4eIt5eSFgPjhVDUjNdB8PDw9vCy8fNs3LuHNGcol4eHh4+3nzxDrfp3rQakDCw8PD28nLA8OHl3JrCGBSzG02wPDw8PAGvN5wwDzhjoYAWpeIh4eHt4eXl0qrvKSw2ytGvN0NDw8Pbwuv177KU/D8avISMx4eHt4JvMLLNyitVql5YaL5iwEPDw/vJl6e2k4KCskVTAYI8PDw8HbymlvEiXgSJPKCRZTi4+Hh4R3A67Xz87R7eTECDw8Pbxlv0uKqFiZ64wXRt/Dw8PAO4N0VQvIRhGoRGQ8PD+8p3qQwUU2Fq+GkgMfDw8NbzKuuvE21Ir1OwhIeHh7eat4Vr0kwyEev8qZaIaXGw8PDW8CrBoN5C22SOo8aYHh4eHi38uYF3LzcUC3vbpopw8PDw9vCqz5ZTeKrQwx4eHh4J/OS0ahqwKjuvDAw4OHh4d1UjMiP27uaavjBw8PDe4pXTXCTQ/QuMaF+GDLAw8PDW8z7voWHh4eHh4eHh3fA+gUAGD7ah73nEgAAAABJRU5ErkJggg==">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC0ElEQVR42u3aUY7bMAwFwL3/pdsDtE7eE5XWsUZfhpOVNAqwBEn9/Dpy/GBjY2NjY2NjY2Pfkv0Tj79MFLxPnpM3fz63e8bGxsZ+NvvNv/7yO1fLX27o4s3redo9Y2NjY5/ATpZpt55jrrae7+dNgMTGxsbGHqQESUBqjwMbGxsbe86+CjZt0nI1w9rRY2NjY5/MbjeazLDGaNOej9fSsLGxsW/PbtOGOzz/0/42NjY29o3Z7UiC2ZvlyzZwHrTe7BwbGxv7oew8MCQlpGTrySXLfJ6iqYCNjY19DLsNZvOrOW2DIQmf2NjY2Oew84na8JOkMfmKeZOgLiphY2Njfzl7cmlmcii7yk95EQobGxv7qexJUjGhTo6+fYONjY39bHZbmnn9zbXLNHkLedL6xcbGxj6BnTPWgt+uw22bx9jY2NinsZPlk+CUlIHmV3O21dKwsbGxv5zdlunbQlJ++aYtYxU/GzY2NvZD2W3ZPQlIaweRr54fIjY2NvbJ7JyXF6Tyja4FsA/2t7GxsbG/hL2WSLQhZ1dgy/8KGxsb+9nsPMAkQaW9NJmnIm1ALWpp2NjY2AewN1+dWSvul/NsCGDY2NjYX8KetFrrheNkY96iwMbGxsbe9dymHO1hYWNjY2PnBf21onz7aXvRMzkIbGxs7NPYaxcr8wNqMXlgezMDNjY29gHs12/WCkl5eWiyYnTc2NjY2AewP9GUzXltalEnVNjY2NjHsNeSk7zckwettTHKwLCxsbG/kN2O9ppmC97V7sXGxsY+h70hMAw2NLleWbeHsbGxsR/NzoPW5HplW1RaS3IuQyA2Njb2Aey1yzprKUS+h10FJmxsbGzseTN4tOmlnwQbGxsbe5KK5GnG3vEf4jY2Njb2bdhrzd3XF33azSU/STIDNjY29mnsPDFoG655+Skv+rdrYWNjYz+bfc7AxsbGxsbGxsbGvs34DfNOUyUULLMEAAAAAElFTkSuQmCC">
               
             </li>
           </ul>
@@ -193,68 +193,43 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=云GPU使用相关事宜&url=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=LaTeX EN/CN in the title of fig/tab&url=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=云GPU使用相关事宜&url=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=LaTeX EN/CN in the title of fig/tab&url=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/" target="_blank" class="mdui-ripple">Share to Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/" target="_blank" class="mdui-ripple">Share to Google+</a>
+              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/" target="_blank" class="mdui-ripple">Share to Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/&title=云GPU使用相关事宜" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/&title=LaTeX EN/CN in the title of fig/tab" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng Zheng Station&title=云GPU使用相关事宜&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/" target="_blank" class="mdui-ripple">Share to QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng Zheng Station&title=LaTeX EN/CN in the title of fig/tab&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/" target="_blank" class="mdui-ripple">Share to QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/&text=云GPU使用相关事宜" target="_blank" class="mdui-ripple">Share to Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/&text=LaTeX EN/CN in the title of fig/tab" target="_blank" class="mdui-ripple">Share to Telegram</a>
             </li>
           </ul>
         
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <h4 id="Choose-virtual-environment-to-use-in-the-notebook"><a href="#Choose-virtual-environment-to-use-in-the-notebook" class="headerlink" title="Choose virtual environment to use in the notebook"></a>Choose virtual environment to use in the notebook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate XX_ENV</span><br><span class="line">conda install ipykernel</span><br><span class="line">ipython kernel install --user --name=XX_ENV</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>Then, click the add button to launch a notebook with the customized kernels.</p>
-</li>
-<li><p><a href="https://www.autodl.com/docs/miniconda/#notebook" target="_blank" rel="noopener">Reference</a>.</p>
-</li>
-</ul>
-<h4 id="报错”pytorch错误：RuntimeError-received-0-items-of-ancdata”"><a href="#报错”pytorch错误：RuntimeError-received-0-items-of-ancdata”" class="headerlink" title="报错”pytorch错误：RuntimeError: received 0 items of ancdata”"></a>报错”pytorch错误：RuntimeError: received 0 items of ancdata”</h4><ul>
-<li>起因: PyTorch多线程共享tensor是以file_descriptor的打开文件方式实现的, 而当其打开文件的数量超过系统的可打开文件数量限制时, 即出现此error. 通过<code>ulimit -a</code>可查看如<code>open files</code>等信息.</li>
-<li>解决:<ol>
-<li><code>sudo ulimit -n 4096</code> – 给系统设置更大的可打开文件数.</li>
-<li><code>torch.multiprocessing.set_sharing_strategy(&#39;file_system&#39;)</code> – 将文件打开方式从file_descriptor修改为file_system, 摆脱其<code>open files</code>的限制.</li>
-</ol>
-</li>
-<li><a href="https://www.cnblogs.com/zhengbiqing/p/10478311.html" target="_blank" rel="noopener">Reference</a>.</li>
-</ul>
-<h4 id="AutoDL平台"><a href="#AutoDL平台" class="headerlink" title="AutoDL平台"></a>AutoDL平台</h4><ul>
-<li>Win10使用vscode+ssh连接时, 不需读取相关的密钥/公钥, 直接读取账户下的<code>.ssh/config</code>即可.</li>
-<li>切换远端文件夹免密 – 创建远端<code>~/.ssh/authorized_keys</code>, 粘贴自己的和<code>.ssh/id_xx.pub</code>进入其中即可.</li>
-<li>当在同一个集群租借不同的实例时, 实例在ssh中都会显示同一个域名作为<code>Host</code>, 导致在vscode中难以区分. 此时需要打开之前的<code>.ssh/config</code>, 将<code>Host</code>变量修改为自定义的名称即可.</li>
-<li>数据全部传至百度云, 上传下载都有10M+/s的速度.</li>
-<li>注意使用0卡模式传数据或配环境.</li>
-</ul>
+      <p>Add <code>\renewcommand{\tablename}{表/Tab}</code> for table and figure (\figurename).</p>
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/">http://ZhengPeng7.github.io/2022/07/01/CloudGPU-related/</a>
+        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/">http://ZhengPeng7.github.io/2023/08/25/LaTeX-EN-CN-in-the-title-of-fig-tab/</a>
       </blockquote>
       
     </div>
     <footer class="mdui-card-actions">
       
-        <a class="mdui-ripple article_categories-link" href="/categories/Tools/">Tools</a>
       
-      
-        <a class="mdui-ripple article_tags-link" href="/tags/GPU/">GPU</a><a class="mdui-ripple article_tags-link" href="/tags/Ubuntu/">Ubuntu</a>
+        <a class="mdui-ripple article_tags-link" href="/tags/LaTex/">LaTex</a>
       
     </footer>
     
@@ -266,14 +241,9 @@
 
   <nav id="paginator">
     
-      <a rel="prev" class="extend prev" href="/2022/07/01/LaTeX-related/">
-        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
-      </a>
-    
     <div class="spacer"></div>
     
-      <a rel="next" class="extend next" href="/2022/06/02/blog-setup/">
+      <a rel="next" class="extend next" href="/2022/07/01/RecordonLife/">
         Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
       </a>
