@@ -12,18 +12,18 @@
 
   <link rel="shortcut icon" href="/media_files/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Peng Zheng Station">
-  <meta name="description" content="2022-06-30, 7:50 ~ 1:10  改MM论文格式至TIP (100%)  帮审完TCSVT的sketch synthesis文章 (100%)  记录下sketch审稿时想的idea: 12345TransSketch: 1). patch是不同大小和尺寸的不同部位, 送入多尺度的transformer模型. 2). identity作为匹配引导, 类似于用classificat">
+  <meta name="description" content="2023-08-25: 更新之前累计很久的小知识到博客. 完成PR的一则审稿. 记录DIS/COD的最新结果. 看DNABert论文.">
 <meta name="keywords" content="log">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Not LondonLife, but RecordonLife.">
 <meta property="og:url" content="http://ZhengPeng7.github.io/2022/07/01/RecordonLife/index.html">
 <meta property="og:site_name" content="Peng Zheng Station">
-<meta property="og:description" content="2022-06-30, 7:50 ~ 1:10  改MM论文格式至TIP (100%)  帮审完TCSVT的sketch synthesis文章 (100%)  记录下sketch审稿时想的idea: 12345TransSketch: 1). patch是不同大小和尺寸的不同部位, 送入多尺度的transformer模型. 2). identity作为匹配引导, 类似于用classificat">
+<meta property="og:description" content="2023-08-25: 更新之前累计很久的小知识到博客. 完成PR的一则审稿. 记录DIS/COD的最新结果. 看DNABert论文.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2022-07-02T20:47:12.665Z">
+<meta property="og:updated_time" content="2023-08-25T07:19:07.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Not LondonLife, but RecordonLife.">
-<meta name="twitter:description" content="2022-06-30, 7:50 ~ 1:10  改MM论文格式至TIP (100%)  帮审完TCSVT的sketch synthesis文章 (100%)  记录下sketch审稿时想的idea: 12345TransSketch: 1). patch是不同大小和尺寸的不同部位, 送入多尺度的transformer模型. 2). identity作为匹配引导, 类似于用classificat">
+<meta name="twitter:description" content="2023-08-25: 更新之前累计很久的小知识到博客. 完成PR的一则审稿. 记录DIS/COD的最新结果. 看DNABert论文.">
 
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
@@ -41,7 +41,7 @@
 
   
     <meta property="article:published_time" content="Thu Jun 30 2022 22:51:17 GMT+0200">
-    <meta property="article:modified_time" content="Sun Jul 03 2022 04:47:12 GMT+0800">
+    <meta property="article:modified_time" content="Fri Aug 25 2023 15:19:07 GMT+0800">
   
 
   
@@ -168,7 +168,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-2.png" style="max-height: 240px;">
+      <img src="/images/random/material-9.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">Not LondonLife, but RecordonLife.</div>
@@ -219,41 +219,12 @@
     </header>
     <div class="mdui-card-content mdui-typo">
       <ol>
-<li><p>2022-06-30, 7:50 ~ 1:10</p>
-<ul>
-<li><p>改MM论文格式至TIP (100%)</p>
-</li>
-<li><p>帮审完TCSVT的sketch synthesis文章 (100%)</p>
-</li>
-<li><p>记录下sketch审稿时想的idea:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TransSketch: 1). patch是不同大小和尺寸的不同部位, 送入多尺度的transformer模型. 2). identity作为匹配引导, 类似于用classification来引导语义. 3). 再加上edge标签的引导(可能加速收敛). 4). 直接对图内GT外的区域设全0, 然后做loss.</span><br><span class="line"></span><br><span class="line">ID引导已有相关文章: Identity-Aware CycleGAN for Face Photo-Sketch Synthesis and Recognition. 但是, 由于他们用的数据集(CUFSF), 里面每个ID只有一张图, 而FS2K中一个ID对应多张图, 因此可以有正样本参与.</span><br><span class="line"></span><br><span class="line">edge &lt;-&gt; sketch DA?</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>翻译TPAMI投稿的中文版 (40%).</p>
-</li>
+<li>2023-08-25:<ul>
+<li>更新之前累计很久的小知识到博客.</li>
+<li>完成PR的一则审稿.</li>
+<li>记录DIS/COD的最新结果.</li>
+<li>看DNABert论文.</li>
 </ul>
-</li>
-<li><p>2022-07-01， 8:00 ~ 2:00</p>
-<blockquote>
-<p>预计完成: 投稿翻译的剩余所有, 继续CO^3数据集的制作.</p>
-</blockquote>
-<ul>
-<li>GCoNet+翻译 (50%).</li>
-<li>CO^3数据集 (30%).</li>
-</ul>
-</li>
-<li><p>2020-07-02, 8:00 ~ 0:45</p>
-<blockquote>
-<p>预计完成: FS2K翻译检查 (20%), GCoNet+翻译 (60%).</p>
-</blockquote>
-<ul>
-<li>GCoNet+翻译 (60%).</li>
-<li>FS2K翻译检查 (20%).</li>
-</ul>
-</li>
-<li><p>2020-07-03</p>
-<blockquote>
-<p>预计完成: FS2K翻译检查 (20%), GCoNet+翻译 (60%), CO^3数据集 (50%), FSGAN重新run一次并整理代码.</p>
-</blockquote>
 </li>
 </ol>
 
