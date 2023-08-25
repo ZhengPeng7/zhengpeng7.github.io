@@ -8,28 +8,31 @@
   <meta name="renderer" content="webkit">
 
   
-  <title>Peng Zheng Station</title>
+  <title>日常疑难杂症 | Peng Zheng Station</title>
 
   <link rel="shortcut icon" href="/media_files/favicon.png">
   <link rel="alternate" href="/atom.xml" title="Peng Zheng Station">
-  <meta name="keywords" content="Vision,Reading">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Peng Zheng Station">
-<meta property="og:url" content="http://ZhengPeng7.github.io/about/index.html">
+  <meta name="description" content="调试时使用Matplotlib显示, 想控制figure出现的位置 确定plt后端编译器类型, 然后分别有对应的设置方法, 对Figure().canvas.manager.window进行设置, 详情见: Ref1, Ref2.  取消pandas使用多级表头时输出的空白行 Ref  Matplotlib 显示窗口时最大化 在plt.show()之后:   12manager = plt.get">
+<meta name="keywords" content="Daily Life">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常疑难杂症">
+<meta property="og:url" content="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/index.html">
 <meta property="og:site_name" content="Peng Zheng Station">
+<meta property="og:description" content="调试时使用Matplotlib显示, 想控制figure出现的位置 确定plt后端编译器类型, 然后分别有对应的设置方法, 对Figure().canvas.manager.window进行设置, 详情见: Ref1, Ref2.  取消pandas使用多级表头时输出的空白行 Ref  Matplotlib 显示窗口时最大化 在plt.show()之后:   12manager = plt.get">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-05T21:24:34.000Z">
+<meta property="og:updated_time" content="2023-08-25T08:25:44.035Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Peng Zheng Station">
+<meta name="twitter:title" content="日常疑难杂症">
+<meta name="twitter:description" content="调试时使用Matplotlib显示, 想控制figure出现的位置 确定plt后端编译器类型, 然后分别有对应的设置方法, 对Figure().canvas.manager.window进行设置, 详情见: Ref1, Ref2.  取消pandas使用多级表头时输出的空白行 Ref  Matplotlib 显示窗口时最大化 在plt.show()之后:   12manager = plt.get">
 
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
   <meta name="description" content="description">
-  <meta name="keywords" content>
+  <meta name="keywords" content=",Daily Life">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Peng Zheng Station">
-  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/about/">
+  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Peng Zheng Station">
@@ -37,9 +40,12 @@
   <link rel="apple-touch-icon" href="/media_files/favicon.png">
 
   
+    <meta property="article:published_time" content="Fri Aug 25 2023 15:44:40 GMT+0200">
+    <meta property="article:modified_time" content="Fri Aug 25 2023 16:25:44 GMT+0800">
+  
 
   
-    <link rel="canonical" href="http://ZhengPeng7.github.io/about/index.html">
+    <link rel="canonical" href="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/">
   
 
   
@@ -162,11 +168,11 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-9.png" style="max-height: 240px;">
+      <img src="/images/random/material-11.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title"></div>
-          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2022-06-02 / <i class="iconfont">&#xe601;</i> Peng Zheng</div>
+          <div class="mdui-card-primary-title">日常疑难杂症</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2023-08-25 / <i class="iconfont">&#xe601;</i> Peng Zheng</div>
         </div>
       </div>
       <div class="mdui-card-menu">
@@ -178,7 +184,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACa0lEQVR42u3aQY7CMAwFUO5/6ZntSBXwbSehg15XFZTSl0Xi/vjx89XHAw8PDw8PDw8P72a8R3z8vf7Zb6/XXP+r+nn+bHh4eHgneW+m2iek5A7Prs+HL382PDw8vPO86mIwn9Zfk3qLEB4eHt7deAl4FCXg4eHhfR2vOolXS3M8PDy8/8UrvPAHgCSSqF6zPWvBw8PDi3k7goNV5x/e38PDw8O78NYGB6+DiWqrwYKmKzw8PLwNvNelbb5IJHeoRhW9ocTDw8Pbzau+6iebXsm3q4Z4tO7h4eHhjXl5U+nk4fLFoFeO4+Hh4Z3h9QrfXhPAJPKIBgIPDw9vMy8qUlvTdzKhT0rnaGHAw8PD28arUvNf9QLZ5Ly8AYaHh4e3lJc/RK/g7pXR1aHHw8PDO8/rTfdJPDEKF4rtC3h4eHhneMl0n7dh9Yry6n8te2PAw8PDK/KqAUHv4aotBUkkUWhXxcPDw9vA6216VYvd/G69RQUPDw/vJK9avK5aAPJNr2Xtqnh4eHhLY9w83q1uSk2C442tA3h4eHgDXqFgHRTQvWGqDiIeHh7eHXh582h1sKJYNh5iPDw8vE/x8kevTutJwNGLbvHw8PDO8+ahbTVuqDZajXrK8PDw8Jbyqkce+84Di16Yi4eHh7ebV52Oe58kV+bBBx4eHt4deMliMD+vhg55QIyHh4f3KV610WqyZdWLJKJhwsPDw7s9L9/Kmi8PyX3w8PDw7sbLw4U8lq0GFm8iDzw8PLyDvOok3msdyEnVohwPDw/vJG+yAZZTk3aEfFAO7e/h4eHhXXjfd+Dh4eHh4eHh4d3g+AXqFismYU+S6AAAAABJRU5ErkJggg==">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACWklEQVR42u3aQXbjIBAEUN3/0jMH8LNT1SCsyXxWeXEs8VnQpJrrz68eFx4eHh4eHh4e3sN4Vzxev/X6hNdPk3e9+9Zwbnh4eHhHeD9stR95CTgBvHtOPTc8PDy8g7xky0426HxaOa8oJ3h4eHiP561v8Xh4eHj/A+/z0bkNFNpjOh4eHt5zeO3GvSvCeFDWgoeHhxfzZtv3mZ+P9vfw8PDwAl59pSkuDLNwYfOlKzw8PLwbeG1zKykqCSC/apDPBw8PD+8ML2/qfy4M65jZW+ojNR4eHt4y7xqNtrS0R+qliwh4eHh4x3l5y6qNZfNykhzQh4UBDw8Pb5nXxgqzKwWzy1XtEuDh4eGd4bUxQdsGm000WQ48PDy8b/FWYtOVawErx/EfnoyHh4d3My+ZehKw1g3+sjzkZQkPDw/vJK99TbuV7w0j3j4NDw8P7zhvFjG0bbNkEWdLj4eHh3c3L48kZsWgPRbPSgseHh7eSd7wH/6FVtZ6eDHs7+Hh4eFt5a1cP10PXvPQIXoOHh4e3kFefpguQtV4OdrLBxuyFjw8PLwFXhu25kHtejBRPw0PDw/vAbz2aJtMKw8j2kM8Hh4e3kne3VNs/2a20Hh4eHh389qRt7jaY3p7dQAPDw/vW7wrHrOmftI8W2/C4eHh4Z3nJcUgiXHz0HYlktgQRuDh4eFt4uUb9OxKQbs0bYnCw8PD+1d4ew/cs9/j4eHhPZ+XN/hnxWC2lHh4eHjneUkYcV+MO2u54eHh4X2Lt3eKSRnIGflM8PDw8M7wft/Aw8PDw8PDw8N7wPgLY5WGkuvy1h0AAAAASUVORK5CYII=">
               
             </li>
           </ul>
@@ -187,48 +193,63 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://ZhengPeng7.github.io/about/index.html&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=日常疑难杂症&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=&url=http://ZhengPeng7.github.io/about/index.html&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=日常疑难杂症&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/about/index.html" target="_blank" class="mdui-ripple">Share to Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/" target="_blank" class="mdui-ripple">Share to Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/about/index.html" target="_blank" class="mdui-ripple">Share to Google+</a>
+              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/" target="_blank" class="mdui-ripple">Share to Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/about/index.html&title=" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&title=日常疑难杂症" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng Zheng Station&title=&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/about/index.html" target="_blank" class="mdui-ripple">Share to QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng Zheng Station&title=日常疑难杂症&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/" target="_blank" class="mdui-ripple">Share to QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/about/index.html&text=" target="_blank" class="mdui-ripple">Share to Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&text=日常疑难杂症" target="_blank" class="mdui-ripple">Share to Telegram</a>
             </li>
           </ul>
         
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      
-
-	<div class="row">
-    <embed src="/media_files/CV_PengZheng.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
+      <h4 id="调试时使用Matplotlib显示-想控制figure出现的位置"><a href="#调试时使用Matplotlib显示-想控制figure出现的位置" class="headerlink" title="调试时使用Matplotlib显示, 想控制figure出现的位置"></a>调试时使用Matplotlib显示, 想控制figure出现的位置</h4><ul>
+<li>确定plt后端编译器类型, 然后分别有对应的设置方法, 对<code>Figure().canvas.manager.window</code>进行设置, 详情见: <a href="https://blog.csdn.net/baidu_36669549/article/details/91046029" target="_blank" rel="noopener">Ref1</a>, <a href="https://stackoverflow.com/questions/7449585/how-do-you-set-the-absolute-position-of-figure-windows-with-matplotlib" target="_blank" rel="noopener">Ref2</a>.</li>
+</ul>
+<h4 id="取消pandas使用多级表头时输出的空白行"><a href="#取消pandas使用多级表头时输出的空白行" class="headerlink" title="取消pandas使用多级表头时输出的空白行"></a>取消pandas使用多级表头时输出的空白行</h4><ul>
+<li><a href="https://blog.csdn.net/qq_43355847/article/details/103384961" target="_blank" rel="noopener">Ref</a></li>
+</ul>
+<h4 id="Matplotlib-显示窗口时最大化"><a href="#Matplotlib-显示窗口时最大化" class="headerlink" title="Matplotlib 显示窗口时最大化"></a>Matplotlib 显示窗口时最大化</h4><ul>
+<li><p>在plt.show()之后:</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">manager = plt.get_current_fig_manager()</span><br><span class="line">manager.window.showMaximized()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://deepinout.com/python/python-qa/t_how-to-maximize-a-plt-show-window-using-python.html" target="_blank" rel="noopener">Ref</a></p>
+</li>
+</ul>
+<h4 id="Split-大zip文件为多个指定大小的小文件"><a href="#Split-大zip文件为多个指定大小的小文件" class="headerlink" title="Split 大zip文件为多个指定大小的小文件"></a>Split 大zip文件为多个指定大小的小文件</h4><ul>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> zip FOLDER and split the output FILE.zip into 5MB chunks</span><br><span class="line">zip -r -s 5m FILE.zip FOLDER/</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Combine the split up chunks</span><br><span class="line">zip -F FILE.zip --out single-archive.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://linuxconfig.org/how-to-split-zip-archive-into-multiple-blocks-of-a-specific-size" target="_blank" rel="noopener">Ref</a></p>
+</li>
+</ul>
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/about/index.html">http://ZhengPeng7.github.io/about/index.html</a>
+        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/">http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/</a>
       </blockquote>
       
     </div>
     <footer class="mdui-card-actions">
       
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/Daily-Life/">Daily Life</a>
       
     </footer>
     
@@ -237,6 +258,22 @@
 <script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
   <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
 
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2023/08/25/Academic-drawing/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2023/08/25/Submission-Format-Related/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
 
 
 
