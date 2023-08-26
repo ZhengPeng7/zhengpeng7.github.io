@@ -20,7 +20,7 @@
 <meta property="og:site_name" content="Peng&#39;Station">
 <meta property="og:description" content="时隔多年, 又把github的blog翻出来重新写, 发现当时的很多项目有问题, 又折腾到了深夜. 走通后, 问题很简单. hexo d时出现问题TypeError [ERR_INVALID_ARG_TYPE]: The &amp;quot;mode&amp;quot; argument must be integer. 出于代码洁癖, 折腾了好久网上仅存在几个博客里的更新特定package的方法, 但是发现不">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2022-06-01T23:15:10.452Z">
+<meta property="og:updated_time" content="2023-08-26T15:15:49.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Blog Setup">
 <meta name="twitter:description" content="时隔多年, 又把github的blog翻出来重新写, 发现当时的很多项目有问题, 又折腾到了深夜. 走通后, 问题很简单. hexo d时出现问题TypeError [ERR_INVALID_ARG_TYPE]: The &amp;quot;mode&amp;quot; argument must be integer. 出于代码洁癖, 折腾了好久网上仅存在几个博客里的更新特定package的方法, 但是发现不">
@@ -41,7 +41,7 @@
 
   
     <meta property="article:published_time" content="Thu Jun 02 2022 01:00:18 GMT+0200">
-    <meta property="article:modified_time" content="Thu Jun 02 2022 07:15:10 GMT+0800">
+    <meta property="article:modified_time" content="Sat Aug 26 2023 23:15:49 GMT+0800">
   
 
   
@@ -170,7 +170,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-10.png" style="max-height: 240px;">
+      <img src="/images/random/material-8.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">Blog Setup</div>
@@ -235,6 +235,11 @@
 <li>打开cmd时, 亦需使用管理员权限, 之后再use方可成功.</li>
 </ol>
 <p><a href="https://stackoverflow.com/questions/66047161/getting-exit-status-1-when-i-run-the-command-nvm-use-12-18-0" target="_blank" rel="noopener">Ref-for-exit-status-1</a>, <a href="https://github.com/coreybutler/nvm-windows/issues/674#issuecomment-956574752" target="_blank" rel="noopener">Ref-for-exit-status-145</a></p>
+<h4 id="评论区问题"><a href="#评论区问题" class="headerlink" title="评论区问题:"></a>评论区问题:</h4><ol>
+<li>在<code>themes/materials/_config.yaml</code>中, 将<code>comment</code>中的<code>use</code>属性设为<strong>gitalk</strong>, 然后进行以下配置:</li>
+<li>生成github的OAuth Apps相关的key, 具体操作可<a href="https://www.zhihu.com/question/564993787" target="_blank" rel="noopener">见</a>.</li>
+<li>还要创建一个repo用于存放评论, 详情可<a href="https://blog.csdn.net/qing_gee/article/details/100133060" target="_blank" rel="noopener">见</a>.</li>
+</ol>
 
       <blockquote class="mdui-m-t-5">
         
