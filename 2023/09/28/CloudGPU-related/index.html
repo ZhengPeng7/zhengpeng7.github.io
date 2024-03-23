@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>云GPU使用相关事宜 | Peng&#39;Station</title>
+
+  <link rel="shortcut icon" href="/media_files/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="Peng'Station">
+  <meta name="description" content="Choose virtual environment to use in the notebook123conda activate XX_ENVconda install ipykernelipython kernel install --user --name=XX_ENV   Then, click the add button to launch a notebook with the c">
+<meta name="keywords" content="GPU,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云GPU使用相关事宜">
+<meta property="og:url" content="http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/index.html">
+<meta property="og:site_name" content="Peng&#39;Station">
+<meta property="og:description" content="Choose virtual environment to use in the notebook123conda activate XX_ENVconda install ipykernelipython kernel install --user --name=XX_ENV   Then, click the add button to launch a notebook with the c">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2023-08-25T07:27:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="云GPU使用相关事宜">
+<meta name="twitter:description" content="Choose virtual environment to use in the notebook123conda activate XX_ENVconda install ipykernelipython kernel install --user --name=XX_ENV   Then, click the add button to launch a notebook with the c">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="description">
+  <meta name="keywords" content=",GPU,Ubuntu">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Peng&#39;Station">
+  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Peng&#39;Station">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/media_files/favicon.png">
+
+  
+    <meta property="article:published_time" content="Wed Sep 27 2023 18:16:14 GMT+0200">
+    <meta property="article:modified_time" content="Fri Aug 25 2023 15:27:42 GMT+0800">
+  
+
+  
+    <link rel="canonical" href="http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/">
+  
+
+  
+  
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">Peng&#39;Station</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="Enter the key words">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/media_files/banner.png" style="height: 160px;">
+    <img src="/media_files/vision.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">Peng Zheng</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>subtitle</div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:zhengpeng0108@gmail.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'zhengpeng0108@gmail.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2023/09/">September 2023<span class="mdui-ripple sidebar_archives-count">7</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2023/08/">August 2023<span class="mdui-ripple sidebar_archives-count">3</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/Life/">Life<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/Tools/">Tools<span class="mdui-ripple sidebar_archives-count">6</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/Daily-Life/">Daily Life<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/GPU/">GPU<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Hexo/">Hexo<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Inkscape/">Inkscape<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/LaTeX/">LaTeX<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/OverLeaf/">OverLeaf<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Paper-Writing/">Paper Writing<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Pdf/">Pdf<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Ubuntu/">Ubuntu<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/log/">log<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">Gallery</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://github.com/ZhengPeng7" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+          <a href="https://scholar.google.com/citations?user=TZRzWOsAAAAJ" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Google Scholar</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-3.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">云GPU使用相关事宜</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2023-09-27 / <i class="iconfont">&#xe601;</i> Peng Zheng &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span></div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZ0lEQVR42u3awU6EUAwF0Pn/n9atiQ7etlCIHlaGMPAOC1pv3+vjTx8vPDw8PDw8PDy8h/Fe8fH1+h9u+u18cia5Pl8bHh4e3ibvl0/tIendY47vlry+3trw8PDwNnl5MXj7US5emTylvDY8PDy8h/HyhebLxcPDw/sPvONf5eUhDzjw8PDwnslL/uFPYPmrSe6/mrXg4eHhxbzeAGzn79vme3h4eHhveOUtTfHQK7kyKRujTVd4eHh4F/AmQUDegvea7DzmwMPDw7uLl8e1x2UgjxLyIpQXDzw8PLwd3nH0UB3zT8Zm1TKAh4eHt8+rfpTz3yZbB/IXmqwQDw8Pb4c3GT71NhDMh2HNGBcPDw/vJF7SWCef/iojadmr21vx8PDwdnj5gL8aWMxb5GqxwcPDw9vhJWFB8omfhw5JeTihpcbDw8Mb8yYf9LztrjbT+QgNDw8Pb5/XG/ZXFzp/HYWXjoeHh3cxb7LFqrpJ64R2eT7fw8PDwzuJN9keWh1ZXRf74uHh4W3yknFXTk3u0ys/UYuPh4eHt8irRg/lZnccRiR3w8PDw7ua1xuG5W1xvrizNq3i4eHhbfJ6w6fesCovMNW2Hg8PD+9qXr6RNG/Eq8HEpPzg4eHh7fOqRx7v9prvfITWrHt4eHh4Y95kTFUNC6pn8mfh4eHh7fMmg6tqa95slPPwAg8PD2+RlxeDnNd7VjW8wMPDw3syrzqamlxzckuNh4eHdysvjyHy+HW+WQEPDw9vn5eHEdVAIQFXQ2Q8PDy8e3m9CCCPCSYxxAkxLh4eHt6pvL934OHh4eHh4eHhPeD4BHuZv4Oki2cJAAAAAElFTkSuQmCC">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=云GPU使用相关事宜&url=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=云GPU使用相关事宜&url=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/&title=云GPU使用相关事宜" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng&#39;Station&title=云GPU使用相关事宜&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/&text=云GPU使用相关事宜" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h4 id="Choose-virtual-environment-to-use-in-the-notebook"><a href="#Choose-virtual-environment-to-use-in-the-notebook" class="headerlink" title="Choose virtual environment to use in the notebook"></a>Choose virtual environment to use in the notebook</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda activate XX_ENV</span><br><span class="line">conda install ipykernel</span><br><span class="line">ipython kernel install --user --name=XX_ENV</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Then, click the add button to launch a notebook with the customized kernels.</p>
+</li>
+<li><p><a href="https://www.autodl.com/docs/miniconda/#notebook" target="_blank" rel="noopener">Reference</a>.</p>
+</li>
+</ul>
+<h4 id="报错”pytorch错误：RuntimeError-received-0-items-of-ancdata”"><a href="#报错”pytorch错误：RuntimeError-received-0-items-of-ancdata”" class="headerlink" title="报错”pytorch错误：RuntimeError: received 0 items of ancdata”"></a>报错”pytorch错误：RuntimeError: received 0 items of ancdata”</h4><ul>
+<li>起因: PyTorch多线程共享tensor是以file_descriptor的打开文件方式实现的, 而当其打开文件的数量超过系统的可打开文件数量限制时, 即出现此error. 通过<code>ulimit -a</code>可查看如<code>open files</code>等信息.</li>
+<li>解决:<ol>
+<li><code>sudo ulimit -n 4096</code> – 给系统设置更大的可打开文件数.</li>
+<li><code>torch.multiprocessing.set_sharing_strategy(&#39;file_system&#39;)</code> – 将文件打开方式从file_descriptor修改为file_system, 摆脱其<code>open files</code>的限制.</li>
+</ol>
+</li>
+<li><a href="https://www.cnblogs.com/zhengbiqing/p/10478311.html" target="_blank" rel="noopener">Reference</a>.</li>
+</ul>
+<h4 id="AutoDL平台"><a href="#AutoDL平台" class="headerlink" title="AutoDL平台"></a>AutoDL平台</h4><ul>
+<li>Win10使用vscode+ssh连接时, 不需读取相关的密钥/公钥, 直接读取账户下的<code>.ssh/config</code>即可.</li>
+<li>切换远端文件夹免密 – 创建远端<code>~/.ssh/authorized_keys</code>, 粘贴自己的和<code>.ssh/id_xx.pub</code>进入其中即可.</li>
+<li>当在同一个集群租借不同的实例时, 实例在ssh中都会显示同一个域名作为<code>Host</code>, 导致在vscode中难以区分. 此时需要打开之前的<code>.ssh/config</code>, 将<code>Host</code>变量修改为自定义的名称即可.</li>
+<li>数据全部传至百度云, 上传下载都有10M+/s的速度.</li>
+<li>注意使用0卡模式传数据或配环境.</li>
+<li>运行很长一段时间后, nohup中没有记录任何错误, 程序却被kill – loss记录时缺失了一处.item(), 造成内存泄漏. 当使用tmux或直接在前台运行, 能够打印更多error相关的有效信息.</li>
+</ul>
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/">http://ZhengPeng7.github.io/2023/09/28/CloudGPU-related/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/Tools/">Tools</a>
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/GPU/">GPU</a><a class="mdui-ripple article_tags-link" href="/tags/Ubuntu/">Ubuntu</a>
+      
+    </footer>
+    
+  </article>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2023/09/28/LaTeX-related/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2023/09/28/blog-setup/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+  <div id="comment" class="mdui-m-t-5">
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '3b0acf4f2cf4f2bc6142',
+    clientSecret: 'c23509a87b60428d80742b4980ca3df07780dfbb',
+    repo: 'port4blogComments',
+    owner: 'ZhengPeng7',
+    admin: ['ZhengPeng7'],
+    id: location.pathname,
+    distractionFreeMode: false
+  });
+  gitalk.render('gitalk-container');
+</script>
+  </div>
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+      <a href="https://twitter.com/moHe53048975" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe655;</i></a>
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://www.github.com/ZhengPeng7" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2024 Peng Zheng<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    <br>
+      <span id="busuanzi_container_site_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_site_pv"></span></span> &nbsp;&nbsp;
+      <span id="busuanzi_container_site_uv" style="display: none;"><i class="iconfont">&#xe601;</i> <span id="busuanzi_value_site_uv"></span></span>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>

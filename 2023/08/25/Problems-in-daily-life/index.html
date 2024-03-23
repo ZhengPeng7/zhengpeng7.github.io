@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>日常疑难杂症 | Peng&#39;Station</title>
+
+  <link rel="shortcut icon" href="/media_files/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="Peng'Station">
+  <meta name="description" content="调试时使用Matplotlib显示, 想控制figure出现的位置 确定plt后端编译器类型, 然后分别有对应的设置方法, 对Figure().canvas.manager.window进行设置, 详情见: Ref1, Ref2.  取消pandas使用多级表头时输出的空白行 Ref  Matplotlib 显示窗口时最大化 在plt.show()之后:   12manager = plt.get">
+<meta name="keywords" content="Daily Life">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日常疑难杂症">
+<meta property="og:url" content="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/index.html">
+<meta property="og:site_name" content="Peng&#39;Station">
+<meta property="og:description" content="调试时使用Matplotlib显示, 想控制figure出现的位置 确定plt后端编译器类型, 然后分别有对应的设置方法, 对Figure().canvas.manager.window进行设置, 详情见: Ref1, Ref2.  取消pandas使用多级表头时输出的空白行 Ref  Matplotlib 显示窗口时最大化 在plt.show()之后:   12manager = plt.get">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2023-08-26T14:54:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日常疑难杂症">
+<meta name="twitter:description" content="调试时使用Matplotlib显示, 想控制figure出现的位置 确定plt后端编译器类型, 然后分别有对应的设置方法, 对Figure().canvas.manager.window进行设置, 详情见: Ref1, Ref2.  取消pandas使用多级表头时输出的空白行 Ref  Matplotlib 显示窗口时最大化 在plt.show()之后:   12manager = plt.get">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="description">
+  <meta name="keywords" content=",Daily Life">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Peng&#39;Station">
+  <meta name="msapplication-starturl" content="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Peng&#39;Station">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/media_files/favicon.png">
+
+  
+    <meta property="article:published_time" content="Fri Aug 25 2023 15:44:40 GMT+0200">
+    <meta property="article:modified_time" content="Sat Aug 26 2023 22:54:10 GMT+0800">
+  
+
+  
+    <link rel="canonical" href="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/">
+  
+
+  
+  
+
+  
+  
+  
+
+  <link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">Peng&#39;Station</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="Enter the key words">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/media_files/banner.png" style="height: 160px;">
+    <img src="/media_files/vision.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">Peng Zheng</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i>subtitle</div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:zhengpeng0108@gmail.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'zhengpeng0108@gmail.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2023/09/">September 2023<span class="mdui-ripple sidebar_archives-count">7</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2023/08/">August 2023<span class="mdui-ripple sidebar_archives-count">3</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/Life/">Life<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/Tools/">Tools<span class="mdui-ripple sidebar_archives-count">6</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/Daily-Life/">Daily Life<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/GPU/">GPU<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Hexo/">Hexo<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Inkscape/">Inkscape<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/LaTeX/">LaTeX<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/OverLeaf/">OverLeaf<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Paper-Writing/">Paper Writing<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Pdf/">Pdf<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Ubuntu/">Ubuntu<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/log/">log<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">Gallery</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://github.com/ZhengPeng7" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+          <a href="https://scholar.google.com/citations?user=TZRzWOsAAAAJ" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Google Scholar</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-16.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">日常疑难杂症</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2023-08-25 / <i class="iconfont">&#xe601;</i> Peng Zheng &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span></div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACWklEQVR42u3aQXbjIBAEUN3/0jMH8LNT1SCsyXxWeXEs8VnQpJrrz68eFx4eHh4eHh4e3sN4Vzxev/X6hNdPk3e9+9Zwbnh4eHhHeD9stR95CTgBvHtOPTc8PDy8g7xky0426HxaOa8oJ3h4eHiP561v8Xh4eHj/A+/z0bkNFNpjOh4eHt5zeO3GvSvCeFDWgoeHhxfzZtv3mZ+P9vfw8PDwAl59pSkuDLNwYfOlKzw8PLwbeG1zKykqCSC/apDPBw8PD+8ML2/qfy4M65jZW+ojNR4eHt4y7xqNtrS0R+qliwh4eHh4x3l5y6qNZfNykhzQh4UBDw8Pb5nXxgqzKwWzy1XtEuDh4eGd4bUxQdsGm000WQ48PDy8b/FWYtOVawErx/EfnoyHh4d3My+ZehKw1g3+sjzkZQkPDw/vJK99TbuV7w0j3j4NDw8P7zhvFjG0bbNkEWdLj4eHh3c3L48kZsWgPRbPSgseHh7eSd7wH/6FVtZ6eDHs7+Hh4eFt5a1cP10PXvPQIXoOHh4e3kFefpguQtV4OdrLBxuyFjw8PLwFXhu25kHtejBRPw0PDw/vAbz2aJtMKw8j2kM8Hh4e3kne3VNs/2a20Hh4eHh389qRt7jaY3p7dQAPDw/vW7wrHrOmftI8W2/C4eHh4Z3nJcUgiXHz0HYlktgQRuDh4eFt4uUb9OxKQbs0bYnCw8PD+1d4ew/cs9/j4eHhPZ+XN/hnxWC2lHh4eHjneUkYcV+MO2u54eHh4X2Lt3eKSRnIGflM8PDw8M7wft/Aw8PDw8PDw8N7wPgLY5WGkuvy1h0AAAAASUVORK5CYII=">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=日常疑难杂症&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&pic=http://ZhengPeng7.github.io/media_files/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=日常疑难杂症&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&via=Peng Zheng" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&title=日常疑难杂症" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=Peng&#39;Station&title=日常疑难杂症&summary=description&pics=http://ZhengPeng7.github.io/media_files/favicon.png&url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/&text=日常疑难杂症" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h4 id="调试时使用Matplotlib显示-想控制figure出现的位置"><a href="#调试时使用Matplotlib显示-想控制figure出现的位置" class="headerlink" title="调试时使用Matplotlib显示, 想控制figure出现的位置"></a>调试时使用Matplotlib显示, 想控制figure出现的位置</h4><ul>
+<li>确定plt后端编译器类型, 然后分别有对应的设置方法, 对<code>Figure().canvas.manager.window</code>进行设置, 详情见: <a href="https://blog.csdn.net/baidu_36669549/article/details/91046029" target="_blank" rel="noopener">Ref1</a>, <a href="https://stackoverflow.com/questions/7449585/how-do-you-set-the-absolute-position-of-figure-windows-with-matplotlib" target="_blank" rel="noopener">Ref2</a>.</li>
+</ul>
+<h4 id="取消pandas使用多级表头时输出的空白行"><a href="#取消pandas使用多级表头时输出的空白行" class="headerlink" title="取消pandas使用多级表头时输出的空白行"></a>取消pandas使用多级表头时输出的空白行</h4><ul>
+<li><a href="https://blog.csdn.net/qq_43355847/article/details/103384961" target="_blank" rel="noopener">Ref</a></li>
+</ul>
+<h4 id="Matplotlib-显示窗口时最大化"><a href="#Matplotlib-显示窗口时最大化" class="headerlink" title="Matplotlib 显示窗口时最大化"></a>Matplotlib 显示窗口时最大化</h4><ul>
+<li><p>在plt.show()之后:</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">manager = plt.get_current_fig_manager()</span><br><span class="line">manager.window.showMaximized()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://deepinout.com/python/python-qa/t_how-to-maximize-a-plt-show-window-using-python.html" target="_blank" rel="noopener">Ref</a></p>
+</li>
+</ul>
+<h4 id="Split-大zip文件为多个指定大小的小文件"><a href="#Split-大zip文件为多个指定大小的小文件" class="headerlink" title="Split 大zip文件为多个指定大小的小文件"></a>Split 大zip文件为多个指定大小的小文件</h4><ul>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> zip FOLDER and split the output FILE.zip into 5MB chunks</span><br><span class="line">zip -r -s 5m FILE.zip FOLDER/</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Combine the split up chunks</span><br><span class="line">zip -F FILE.zip --out single-archive.zip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://linuxconfig.org/how-to-split-zip-archive-into-multiple-blocks-of-a-specific-size" target="_blank" rel="noopener">Ref</a></p>
+</li>
+</ul>
+<h4 id="调整关于各种python包之类的东西的默认系统级变量"><a href="#调整关于各种python包之类的东西的默认系统级变量" class="headerlink" title="调整关于各种python包之类的东西的默认系统级变量"></a>调整关于各种python包之类的东西的默认系统级变量</h4><ul>
+<li>在<code>~/.bashrc</code>中修改以下变量:<ul>
+<li><code>$XDG_DATA_HOME</code>: 默认值为<code>~/.local/share</code>, app的setting/插件记录.</li>
+<li><code>$XDG_CONFIG_HOME</code>: 默认值为<code>~/.config</code>, 配置相关.</li>
+<li><code>$XDG_CACHE_HOME</code>: 各种缓存, 如PyTorch / HuggingFace等包下载东西的路径.</li>
+<li><a href="https://winddoing.github.io/post/ef694e1f.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%B8%85%E5%8D%95%EF%BC%9A%E7%94%A8%E6%88%B7%E5%B1%82%E9%9D%A2%E5%8F%98%E9%87%8F%EF%BC%88User-Level-Variables%EF%BC%89" target="_blank" rel="noopener">Ref</a> (含其他一些相关的变量值解释).</li>
+</ul>
+</li>
+</ul>
+<h4 id="clear命令无法执行-terminals-database-is-inaccessible"><a href="#clear命令无法执行-terminals-database-is-inaccessible" class="headerlink" title="clear命令无法执行, terminals database is inaccessible"></a>clear命令无法执行, <code>terminals database is inaccessible</code></h4><ul>
+<li>缘由: clear其实用的是conda相关的, 把现有的<code>~/.conda/envs/THE_ENV/bin/clear</code>给删了或重命名即可. 之后再<code>clear</code>, 会自动再生成新的正确的的.</li>
+<li><a href="https://blog.csdn.net/lishijin5421/article/details/123541824" target="_blank" rel="noopener">Ref</a></li>
+</ul>
+<h4 id="自定义nohup输出的文件"><a href="#自定义nohup输出的文件" class="headerlink" title="自定义nohup输出的文件"></a>自定义<code>nohup</code>输出的文件</h4><ul>
+<li><code>nohup ./go.sh &gt; out.log 2&gt;&amp;1 &amp;</code></li>
+</ul>
+<h4 id="ImageNet-1k的ID和classname对应"><a href="#ImageNet-1k的ID和classname对应" class="headerlink" title="ImageNet-1k的ID和classname对应:"></a>ImageNet-1k的ID和classname对应:</h4><ul>
+<li><a href="https://gist.githubusercontent.com/aaronpolhamus/964a4411c0906315deb9f4a3723aac57/raw/aa66dd9dbf6b56649fa3fab83659b2acbf3cbfd1/map_clsloc.txt" target="_blank" rel="noopener">Ref1</a>, <a href="https://drive.google.com/file/d/1qR8enxOKKKgwxLyDTJEmseBu_taVAeor/view?usp=drive_link" target="_blank" rel="noopener">Ref2</a></li>
+</ul>
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><a href="http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/">http://ZhengPeng7.github.io/2023/08/25/Problems-in-daily-life/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+      
+        <a class="mdui-ripple article_tags-link" href="/tags/Daily-Life/">Daily Life</a>
+      
+    </footer>
+    
+  </article>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2023/08/25/Academic-drawing/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2023/08/25/Submission-Format-Related/">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+  <div id="comment" class="mdui-m-t-5">
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '3b0acf4f2cf4f2bc6142',
+    clientSecret: 'c23509a87b60428d80742b4980ca3df07780dfbb',
+    repo: 'port4blogComments',
+    owner: 'ZhengPeng7',
+    admin: ['ZhengPeng7'],
+    id: location.pathname,
+    distractionFreeMode: false
+  });
+  gitalk.render('gitalk-container');
+</script>
+  </div>
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+      <a href="https://twitter.com/moHe53048975" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe655;</i></a>
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://www.github.com/ZhengPeng7" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2024 Peng Zheng<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    <br>
+      <span id="busuanzi_container_site_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_site_pv"></span></span> &nbsp;&nbsp;
+      <span id="busuanzi_container_site_uv" style="display: none;"><i class="iconfont">&#xe601;</i> <span id="busuanzi_value_site_uv"></span></span>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
