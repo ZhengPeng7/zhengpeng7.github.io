@@ -323,6 +323,26 @@
 </table>
 
 </article>
+
+
+  <div id="comment" class="mdui-m-t-5">
+    <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '3b0acf4f2cf4f2bc6142',
+    clientSecret: 'c23509a87b60428d80742b4980ca3df07780dfbb',
+    repo: 'port4blogComments',
+    owner: 'ZhengPeng7',
+    admin: ['ZhengPeng7'],
+    id: location.pathname,
+    distractionFreeMode: false
+  });
+  gitalk.render('gitalk-container');
+</script>
+  </div>
+
 </main>
   <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
   <div class="mdui-p-y-0 mdui-text-center sns-icons">
